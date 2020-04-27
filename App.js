@@ -1,10 +1,11 @@
 import React from 'react';
+import Welcome from './components/Welcome';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Welcome/>
     </View>
   );
 }
@@ -15,5 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingLeft:50,
+    paddingRight:50
   },
 });
