@@ -32,8 +32,11 @@ export default function App({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft:50,
+    paddingRight:50
   },
   welcomeText: {
     fontSize: 30,
