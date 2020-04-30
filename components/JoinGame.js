@@ -8,7 +8,7 @@ import {
   TextInput
 } from "react-native";
 
-export default function App() {
+export default function JoinGame() {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Enter your 6 digit game code</Text>

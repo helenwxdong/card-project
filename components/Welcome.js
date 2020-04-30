@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
 } from "react-native";
 
-export default function App({ navigation }) {
+export default function Welcome({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to Crabs Against Hummus</Text>
