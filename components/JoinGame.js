@@ -5,25 +5,27 @@ import {
   View,
   Button,
   TouchableHighlight,
+  TextInput
 } from "react-native";
 
-export default function App({ navigation }) {
+export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to Crabs Against Hummus</Text>
-      <TouchableHighlight
-        style={styles.button}
-        onPress={() => navigation.navigate("JoinGame")}
-        underlayColor="#fff"
-      >
-        <Text style={styles.buttonText}>JOIN GAME</Text>
-      </TouchableHighlight>
+      <Text style={styles.welcomeText}>Enter your 6 digit game code</Text>
+      <TextInput
+      style={styles.textInput}
+      />
+      <TextInput
+      style={styles.textInput}
+      placeholder="Nickname"
+      placeholderTextColor="black"
+      />
       <TouchableHighlight
         style={styles.button}
         onPress={() => this.submitSuggestion(this.props)}
         underlayColor="#fff"
       >
-        <Text style={styles.buttonText}>CREATE GAME</Text>
+        <Text style={styles.buttonText}>JOIN GAME</Text>
       </TouchableHighlight>
     </View>
   );
@@ -56,4 +58,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  textInput: {
+     height: 40,
+     width: 200,
+     backgroundColor: 'lightgray',
+     borderWidth: 1,
+     marginTop: 20,
+     marginBottom: 20,
+     borderRadius: 20,
+     paddingLeft: 20,
+     paddingRight: 20,
+  }
 });
