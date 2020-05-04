@@ -1,10 +1,13 @@
-Dependencies:
+# Crabs Against Hummus
+### (A take on our favourite card game)
 
-Firebase:
+## Dependencies
+
+##### Firebase
     expo install firebase
 
-Navigation:
+##### Navigation
     npm install @react-navigation/native @react-navigation/stack
 
-    For Android:
+##### For Android
         expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
