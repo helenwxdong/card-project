@@ -11,12 +11,24 @@ const firebaseConfig = {
 
 export default class FirebaseHandler {
     constructor() {
-      firebase.initializeApp(firebaseConfig);
+      if(!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
     }
     test(){
       firebase.database().ref("games/203456/players/").update({
         Helen : 5
       });
+    }
+    addPlayer(name){
+      firebase.database().ref("games/203456/players").update({
+        [name] : 1
+      })
+    }
+    async checkGame(gameID){
+      const ref = firebase.database().ref("games/" + gameID);
+      const snapshot = await ref.once("value");
+      return snapshot.exists();
     }
 }
   
