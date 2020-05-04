@@ -1,6 +1,7 @@
 import React from 'react';
 import Welcome from './components/Welcome';
 import JoinGame from './components/JoinGame';
+import WaitingRoom from './components/WaitingRoom';
 import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,6 +17,7 @@ export default function App() {
           component={Welcome}
         />
         <Stack.Screen name="JoinGame" component={JoinGame} />
+        <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
