@@ -7,6 +7,8 @@ import {
   TouchableHighlight,
 } from "react-native";
 
+// Displays welcome screen asking user to choose between joining a game or creating a game
+
 export default function Welcome({ navigation }) {
   return (
     <View style={styles.container}>
@@ -28,6 +30,8 @@ export default function Welcome({ navigation }) {
     </View>
   );
 }
+
+// Appropriate styling for the screen 
 
 const styles = StyleSheet.create({
   container: {

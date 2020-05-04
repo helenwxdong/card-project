@@ -15,16 +15,15 @@ export default class FirebaseHandler {
         firebase.initializeApp(firebaseConfig);
       }
     }
-    test(){
-      firebase.database().ref("games/203456/players/").update({
-        Helen : 5
-      });
-    }
+
+    // Adds name as a player to the game specified
     addPlayer(name){
       firebase.database().ref("games/203456/players").update({
         [name] : 1
       })
     }
+
+    // Checks if gameID is a valid game in the database
     async checkGame(gameID){
       const ref = firebase.database().ref("games/" + gameID);
       const snapshot = await ref.once("value");

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import FirebaseHandler from "../firebase/FirebaseHandler"
 
+// Asks user to input a 6 digit game code and their nickname to join the game
 
 export default function JoinGame({ navigation }) {
   const [name, setName] = React.useState('');
@@ -40,6 +41,9 @@ export default function JoinGame({ navigation }) {
     </View>
   );
 }
+
+// Checks if the game code the user has entered exists, if so, adds user to the game
+// and takes them to the waiting room
 
 async function findGame(name, gameID, navigation){
   let firebaseHandler = new FirebaseHandler();
