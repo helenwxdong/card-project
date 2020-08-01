@@ -5,25 +5,54 @@ import {
   View,
   Button,
   TouchableHighlight,
+  Alert
 } from "react-native";
+import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
-export default function Welcome({ navigation }) {
+export default function WaitingRoom({ navigation }) {
+  const players = ["Helen", "Maddy", "Silly"];
+  Alert.alert(players)
   return (
     <View style={styles.container}>
-      <TouchableHighlight
-        style={styles.waitingContainer}
-        onPress={() => navigation.navigate("JoinGame")}
+
+      <View style={styles.waitingContainer}
+        underlayColor="#fff">
+        <Text>YANNY'S GAME</Text>
+        <TouchableHighlight
+        style={styles.gameCode}
         underlayColor="#fff"
       >
-        <Text>IM CRTYY</Text>
+        <Text style={styles.buttonText}>Game code: xxxxxxxxx</Text>
       </TouchableHighlight>
+      <Text>Max number of players: 10000</Text>
+
+      <Table borderStyle={{borderColor: 'transparent'}}>
+          <Row data={players} />
+          {
+            players.map((rowData, index) => (
+              <TableWrapper key={index} >
+                {
+                  rowData.map((cellData, cellIndex) => (
+                    <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} />
+                  ))
+                }
+              </TableWrapper>
+            ))
+          }
+        </Table>
+
+
+
+        </View>
+
       <TouchableHighlight
         style={styles.button}
         onPress={() => this.submitSuggestion(this.props)}
         underlayColor="#fff"
       >
-        <Text style={styles.buttonText}>CREATE GAME</Text>
+        <Text style={styles.buttonText}>START GAME</Text>
       </TouchableHighlight>
+
     </View>
   );
 }
@@ -61,5 +90,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     textAlign: "center",
+  },
+  gameCode: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 30,
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderRadius: 50,
+    width: 200,
+    borderWidth: 1,
+    borderColor: "#fff",
   },
 });
