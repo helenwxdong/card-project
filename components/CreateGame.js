@@ -12,18 +12,12 @@ import FirebaseHandler from "../firebase/FirebaseHandler"
 
 // Asks user to input a 6 digit game code and their nickname to join the game
 
-export default function JoinGame({ navigation }) {
+export default function CreateGame({ navigation }) {
   const [name, setName] = React.useState('');
-  const [gameID, setGameID] = React.useState('');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Enter your 6 digit game code</Text>
-      <TextInput
-      style={styles.textInput}
-      value={gameID}
-      onChangeText={text =>setGameID(text)}
-      />
+      <Text style={styles.welcomeText}>Enter your nickname</Text>
       <TextInput
       style={styles.textInput}
       placeholder="Nickname"
@@ -33,10 +27,10 @@ export default function JoinGame({ navigation }) {
       />
       <TouchableHighlight
         style={styles.button}
-        onPress={() => findGame(name, gameID, navigation)}
+        onPress={() => createGame(name, navigation)}
         underlayColor="#fff"
       >
-        <Text style={styles.buttonText}>JOIN GAME</Text>
+        <Text style={styles.buttonText}>CREATE GAME</Text>
       </TouchableHighlight>
     </View>
   );
@@ -45,24 +39,13 @@ export default function JoinGame({ navigation }) {
 // Checks if the game code the user has entered exists, if so, checks if user name already exists and adds user to the game
 // and takes them to the waiting room
 
-async function findGame(name, gameID, navigation){
+async function createGame(name, navigation){
   let firebaseHandler = new FirebaseHandler();
-  const gameExists = await firebaseHandler.checkGame(gameID);
-  if (gameExists){
-    const playerExists = await firebaseHandler.checkPlayer(gameID);
-    if(!playerExists) {
-      firebaseHandler.addPlayer(name);
-      navigation.navigate("WaitingRoom", {
-        name : name,
-        gameID : gameID
-      })
-    }
-    else {
-      Alert.alert("Player name already exists", "Pick a different one")
-    }
-  } else {
-    Alert.alert("Game code does not exist", "Please try again")
-  }
+  let gameKey = await firebaseHandler.createGame();
+  navigation.navigate("WaitingRoom", {
+      name : name,
+      gameID : gameKey
+  })
 }
 
 const styles = StyleSheet.create({

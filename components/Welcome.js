@@ -22,7 +22,7 @@ export default function Welcome({ navigation }) {
       </TouchableHighlight>
       <TouchableHighlight
         style={styles.button}
-        onPress={() => this.submitSuggestion(this.props)}
+        onPress={() => navigation.navigate("CreateGame")}
         underlayColor="#fff"
       >
         <Text style={styles.buttonText}>CREATE GAME</Text>
